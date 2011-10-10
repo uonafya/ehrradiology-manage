@@ -1,3 +1,6 @@
+1.4.1
+- Added patient search for solan
+
 1.4.0
 - Moved CKEditor to Hospitalcore.
 - Changed code to use CKEditor in Hospitalcore.

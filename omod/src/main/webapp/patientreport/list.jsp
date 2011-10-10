@@ -3,13 +3,15 @@
 <%@ include file="../includes/js_css.jsp" %>
 <br/>
 <openmrs:require privilege="Manage Radiology Patient Report" otherwise="/login.htm" redirect="/module/radiology/patientReport.form" />
+<openmrs:globalProperty key="hospitalcore.hospitalName" defaultValue="ddu" var="hospitalName"/>
 <%@ include file="../localHeader.jsp" %>
 <script type="text/javascript">
 
 	jQuery(document).ready(function() {
 		jQuery('#date').datepicker({yearRange:'c-30:c+30', dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true});
-		jQuery("#searchbox").showPatientSearchBox({					
-			resultView: "/module/radiology/patientsearch/patientreport",		
+		jQuery("#searchbox").showPatientSearchBox({			
+			searchBoxView: "${hospitalName}/default",
+			resultView: "/module/radiology/patientsearch/${hospitalName}/patientreport",		
 			target: "#patientResult",
 			beforeNewSearch: function(){
 				jQuery("#patientSearchResultSection").hide();
