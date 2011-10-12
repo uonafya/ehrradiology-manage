@@ -6,7 +6,7 @@
 <br/>
 <%@ include file="../localHeader.jsp" %>
 <script type="text/javascript" src="${pageContext.request.contextPath}/moduleResources/hospitalcore/scripts/CKEditor/ckeditor.js"></script>
-<h2>Manage Department</h2>
+<h2>Manage Template</h2>
 
 <script type="text/javascript">
 	jQuery(document).ready(function() {

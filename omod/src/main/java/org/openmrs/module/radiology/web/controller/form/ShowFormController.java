@@ -153,7 +153,7 @@ public class ShowFormController {
 
 		Obs obs = getObs(encounter, concept);
 		obs.setConcept(concept);
-		obs.setOrder(test.getOrder());
+		obs.setOrder(test.getOrder());		
 		if (concept.getDatatype().getName().equalsIgnoreCase("Text")) {
 			value = value.replace("\n", "\\n");
 			obs.setValueText(value);

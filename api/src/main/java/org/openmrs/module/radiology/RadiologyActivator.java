@@ -21,6 +21,7 @@
 package org.openmrs.module.radiology;
 
 import org.openmrs.module.ModuleActivator;
+import org.openmrs.module.radiology.util.Maintainer;
 
 /**
  * This class contains the logic that is run every time this module is either started or shutdown
@@ -32,7 +33,7 @@ public class RadiologyActivator implements ModuleActivator {
 	}
 
 	public void started() {						
-		
+		//Maintainer.maintain();
 	}
 
 	public void stopped() {
