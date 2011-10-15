@@ -74,7 +74,7 @@ public class SearchPatientReportController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String searchTest(
 			@RequestParam(value = "date", required = false) String dateStr,
-			@RequestParam(value = "patientIdentifier") String patientIdentifier,
+			@RequestParam(value = "patientId") Integer patientId,
 			HttpServletRequest request, Model model) {
 		RadiologyService rs = (RadiologyService) Context
 				.getService(RadiologyService.class);
@@ -82,10 +82,8 @@ public class SearchPatientReportController {
 		Date date = null;
 		try {
 			date = sdf.parse(dateStr);
-			List<Patient> patients = Context.getPatientService().getPatients(
-					patientIdentifier);
-			if (!patients.isEmpty()) {
-				Patient patient = patients.get(0);
+			Patient patient = Context.getPatientService().getPatient(patientId);
+			if (patient != null) {
 				List<RadiologyTest> radiologyTests = rs
 						.getRadiologyTestsByDateAndPatient(date, patient);
 				if ((radiologyTests != null) && (!radiologyTests.isEmpty())) {
@@ -112,8 +110,9 @@ public class SearchPatientReportController {
 		for (RadiologyTest test : tests) {
 			if (test.getEncounter() != null) {
 				TestResultModel trm = new TestResultModel();
-				trm.setInvestigation(RadiologyUtil.getConceptName(getInvestigationByTest(test,
-						investigationTests)));
+				trm.setInvestigation(RadiologyUtil
+						.getConceptName(getInvestigationByTest(test,
+								investigationTests)));
 				trm.setSet(test.getConcept().getName().getName());
 				trm.setLevel(TestResultModel.LEVEL_SET);
 				trm.setRadiologyTestId(test.getId());

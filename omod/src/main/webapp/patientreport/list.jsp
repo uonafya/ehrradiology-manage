@@ -23,14 +23,14 @@
     });
 	
 	// Get patient test by patient identifier
-	function getPatientReport(patientIdentifier){
+	function getPatientReport(patientId){
 		var date = jQuery("#date").val();
 		jQuery.ajax({
 			type : "GET",
 			url : getContextPath() + "/module/radiology/searchPatientReport.form",
 			data : ({
-				date			 : date,
-				patientIdentifier: patientIdentifier
+				date	 : date,
+				patientId: patientId
 			}), 
 			success : function(data) {
 				jQuery("#tests").html(data);
