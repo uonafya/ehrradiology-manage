@@ -40,7 +40,7 @@ import org.openmrs.ConceptWord;
 import org.openmrs.Order;
 import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
-import org.openmrs.module.hospitalcore.util.PatientUtil;
+import org.openmrs.module.hospitalcore.util.PatientUtils;
 import org.openmrs.module.radiology.RadiologyService;
 import org.openmrs.module.radiology.model.RadiologyForm;
 import org.openmrs.module.radiology.model.RadiologyTest;
@@ -154,19 +154,16 @@ public class AjaxController {
 	 * @return
 	 */
 	@RequestMapping(value = "/module/radiology/ajax/showTestInfo.htm", method = RequestMethod.GET)
-	public String showTestInfo(
-			@RequestParam("patientIdentifier") String patientIdentifier,
+	public String showTestInfo(@RequestParam("patientId") Integer patientId,
 			@RequestParam(value = "orderId", required = false) Integer orderId,
 			Model model) {
-		List<Patient> patients = Context.getPatientService().getPatients(
-				patientIdentifier);
-		if (!patients.isEmpty()) {
-			Patient patient = patients.get(0);
+		Patient patient = Context.getPatientService().getPatient(patientId);
+		if (patient!=null) {
 			model.addAttribute("patient_identifier", patient
 					.getPatientIdentifier().getIdentifier());
 			model.addAttribute("patient_age", patient.getAge());
 			model.addAttribute("patient_gender", patient.getGender());
-			model.addAttribute("patient_name", PatientUtil.getFullName(patient));
+			model.addAttribute("patient_name", PatientUtils.getFullName(patient));
 		}
 		if (orderId != null) {
 			Order order = Context.getOrderService().getOrder(orderId);
@@ -182,7 +179,7 @@ public class AjaxController {
 
 	@RequestMapping(value = "/module/radiology/ajax/checkExistingForm.htm", method = RequestMethod.GET)
 	public String checkExistingForm(
-			@RequestParam("conceptName") String conceptName,			
+			@RequestParam("conceptName") String conceptName,
 			@RequestParam(value = "formId", required = false) Integer formId,
 			Model model) {
 		Concept concept = RadiologyUtil.searchConcept(conceptName);
@@ -202,7 +199,7 @@ public class AjaxController {
 					if (forms.contains(form)) {
 						forms.remove(form);
 					}
-				} else {					
+				} else {
 					duplicatedFormFound = true;
 				}
 
@@ -212,18 +209,21 @@ public class AjaxController {
 		}
 		return "/module/radiology/ajax/checkExistingForm";
 	}
-	
-	@RequestMapping(value = "/module/radiology/ajax/validateRescheduleDate.htm", method = RequestMethod.GET)	
-	public void validateRescheduleDate(@RequestParam("rescheduleDate") String rescheduleDateStr, HttpServletResponse response) throws IOException, ParseException{
-		
+
+	@RequestMapping(value = "/module/radiology/ajax/validateRescheduleDate.htm", method = RequestMethod.GET)
+	public void validateRescheduleDate(
+			@RequestParam("rescheduleDate") String rescheduleDateStr,
+			HttpServletResponse response) throws IOException, ParseException {
+
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter writer = response.getWriter();
-		
-		Date rescheduleDate = RadiologyUtil.parseDate(rescheduleDateStr + " 00:00:00");
+
+		Date rescheduleDate = RadiologyUtil.parseDate(rescheduleDateStr
+				+ " 00:00:00");
 		Date now = new Date();
 		String currentDateStr = RadiologyUtil.formatDate(now) + " 00:00:00";
 		Date currentDate = RadiologyUtil.parseDate(currentDateStr);
-		if(rescheduleDate.after(currentDate))
+		if (rescheduleDate.after(currentDate))
 			writer.print("success");
 		else
 			writer.print("fail");

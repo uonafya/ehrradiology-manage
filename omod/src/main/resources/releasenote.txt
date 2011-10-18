@@ -1,3 +1,7 @@
+1.4.2
+- Fixed bug not showing report on Patient Report page.
+- Changed the method to display patient's age on Queue.
+
 1.4.1
 - Added patient search for solan
 

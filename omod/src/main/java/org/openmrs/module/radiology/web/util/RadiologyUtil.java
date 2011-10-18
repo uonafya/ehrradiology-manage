@@ -38,7 +38,7 @@ import org.openmrs.Order;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.hospitalcore.concept.TestTree;
 import org.openmrs.module.hospitalcore.model.RadiologyDepartment;
-import org.openmrs.module.hospitalcore.util.PatientUtil;
+import org.openmrs.module.hospitalcore.util.PatientUtils;
 import org.openmrs.module.radiology.RadiologyService;
 import org.openmrs.module.radiology.model.RadiologyForm;
 import org.openmrs.module.radiology.model.RadiologyTest;
@@ -167,9 +167,9 @@ public class RadiologyUtil {
 		tm.setStartDate(sdf.format(order.getStartDate()));
 		tm.setPatientIdentifier(order.getPatient().getPatientIdentifier()
 				.getIdentifier());
-		tm.setPatientName(PatientUtil.getFullName(order.getPatient()));
+		tm.setPatientName(PatientUtils.getFullName(order.getPatient()));
 		tm.setGender(order.getPatient().getGender());
-		tm.setAge(order.getPatient().getAge());
+		tm.setAge(PatientUtils.estimateAge(order.getPatient()));
 		tm.setTestName(order.getConcept().getName().getName());
 		tm.setOrderId(order.getOrderId());
 

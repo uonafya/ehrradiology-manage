@@ -46,11 +46,10 @@ public class ShowPatientReportController {
 				.getService(RadiologyService.class);
 		RadiologyTest test = rs.getRadiologyTestById(testId);
 		String testName = test.getConcept().getName().getName();
-		String patientIdentifier = test.getPatient().getPatientIdentifier().getIdentifier();
 		RadiologyTemplate template = getTemplate(test.getConcept());
 		
 		model.addAttribute("testName", testName);
-		model.addAttribute("patientIdentifier", patientIdentifier);
+		model.addAttribute("patientId", test.getPatient().getPatientId());
 		model.addAttribute("orderId", test.getOrder().getOrderId());
 		model.addAttribute("template", template);
 		model.addAttribute("testId", testId);

@@ -34,7 +34,7 @@
 			}), 
 			success : function(data) {
 				jQuery("#tests").html(data);
-				insertTestInfo(patientIdentifier);				
+				insertTestInfo(patientId);				
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
 				alert("ERROR " + xhr);
@@ -43,12 +43,12 @@
 	}
 	
 	// Insert test information
-	function insertTestInfo(patientIdentifier){		
+	function insertTestInfo(patientId){		
 		jQuery.ajax({
 			type : "GET",
 			url : getContextPath() + "/module/radiology/ajax/showTestInfo.htm",
 			data : ({
-				patientIdentifier	: patientIdentifier
+				patientId	: patientId
 			}),
 			success : function(data) {
 				jQuery("#patientReportTestInfo").html(data);	

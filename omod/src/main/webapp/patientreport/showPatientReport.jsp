@@ -18,7 +18,7 @@
 			type : "GET",
 			url : getContextPath() + "/module/radiology/ajax/showTestInfo.htm",
 			data : ({
-				patientIdentifier	: '${patientIdentifier}',
+				patientId	: '${patientId}',
 				orderId		: '${orderId}'
 			}),
 			success : function(data) {
@@ -43,7 +43,7 @@
 				$("#formcontent").html(data);	
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
-				alert("ERROR " + xhr);
+				alert("ERROR " + thrownError);
 			}
 		});
 	}

@@ -41,7 +41,7 @@ import org.openmrs.module.hospitalcore.concept.ConceptNode;
 import org.openmrs.module.hospitalcore.concept.TestTree;
 import org.openmrs.module.hospitalcore.model.RadiologyDepartment;
 import org.openmrs.module.hospitalcore.util.GlobalPropertyUtil;
-import org.openmrs.module.hospitalcore.util.PatientUtil;
+import org.openmrs.module.hospitalcore.util.PatientUtils;
 import org.openmrs.module.radiology.RadiologyService;
 import org.openmrs.module.radiology.db.RadiologyDAO;
 import org.openmrs.module.radiology.model.RadiologyForm;
@@ -316,7 +316,7 @@ public class RadiologyServiceImpl extends BaseOpenmrsService implements
 		List<RadiologyTest> patientFilteredOrders = new ArrayList<RadiologyTest>();
 		for (RadiologyTest test : tests) {
 			Patient patient = test.getPatient();
-			String fullname = PatientUtil.getFullName(patient).toLowerCase();
+			String fullname = PatientUtils.getFullName(patient).toLowerCase();
 			String identifier = patient.getPatientIdentifier().getIdentifier()
 					.toLowerCase();
 			phrase = phrase.toLowerCase();

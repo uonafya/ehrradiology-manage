@@ -26,7 +26,6 @@ public class TestModel {
 	private String patientIdentifier;
 	private String patientName;
 	private String gender;
-	private Integer age;
 	private String testName;
 	private Integer orderId;
 	private String status;
@@ -38,6 +37,7 @@ public class TestModel {
 	private Integer givenEncounterId;
 	private Integer notGivenEncounterId;
 	private Boolean xray;
+	private String age;
 
 	public String getStartDate() {
 		return startDate;
@@ -69,14 +69,6 @@ public class TestModel {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-
-	public Integer getAge() {
-		return age;
-	}
-
-	public void setAge(Integer age) {
-		this.age = age;
 	}
 
 	public String getTestName() {
@@ -165,5 +157,13 @@ public class TestModel {
 
 	public void setXray(Boolean xray) {
 		this.xray = xray;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
 	}
 }
