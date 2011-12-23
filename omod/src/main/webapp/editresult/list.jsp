@@ -62,7 +62,7 @@
 				testId : testId
 			}),
 			success : function(data) {
-				if (data == 'success') {
+				if (data.indexOf('success')>=0) {
 					getTests();
 				} else {
 					alert(data);

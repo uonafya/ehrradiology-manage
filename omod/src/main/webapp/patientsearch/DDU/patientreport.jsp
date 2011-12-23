@@ -62,7 +62,7 @@
 			<td><b>Relative Name</b></td>
 		</tr>
 		<c:forEach items="${patients}" var="patient" varStatus="varStatus">
-			<tr class='${varStatus.index % 2 == 0 ? "oddRow" : "evenRow" } patientSearchRow' onClick="getPatientReport('${patient.patientIdentifier.identifier}');">				
+			<tr class='${varStatus.index % 2 == 0 ? "oddRow" : "evenRow" } patientSearchRow' onClick="getPatientReport('${patient.id}');">				
 				<td>
 					${patient.patientIdentifier.identifier}
 				</td>

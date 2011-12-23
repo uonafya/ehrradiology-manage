@@ -1,3 +1,7 @@
+1.4.3
+- Fixed bug not showing report on Patient Report page for DDU
+- Fixed bug not refresh the page when enter result on Worklist.
+
 1.4.2
 - Fixed bug not showing report on Patient Report page.
 - Changed the method to display patient's age on Queue.

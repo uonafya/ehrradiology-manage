@@ -90,7 +90,7 @@
 				testId : testId
 			}),
 			success : function(data) {
-				if (data == 'success') {
+				if (data.indexOf('success')>=0) {
 					jQuery("#acceptBox_" + orderId).html(
 							"<a href='javascript:acceptTest(" + orderId
 									+ ");'>Accept</a>");
@@ -120,7 +120,7 @@
 			}),
 			success : function(data) {
 				
-				if (data == 'success') {						
+				if (data.indexOf('success')>=0) {						
 					jQuery.ajax({
 						type : "POST",
 						url : getContextPath() + "/module/radiology/rescheduleTest.form",
@@ -129,7 +129,7 @@
 							rescheduledDate : rescheduledDate
 						}),
 						success : function(data) {
-							if (data == 'success') {
+							if (data.indexOf('success')>=0) {
 								getTests();
 							} else {
 								alert(data);
