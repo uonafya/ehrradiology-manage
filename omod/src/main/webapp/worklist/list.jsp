@@ -81,7 +81,7 @@
 							rescheduledDate : rescheduledDate
 						}),
 						success : function(data) {
-							if (data.indexOf('success')) {
+							if (data.indexOf('success')>=0) {
 								getTests();
 							} else {
 								alert(data);
