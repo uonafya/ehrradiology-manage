@@ -4,7 +4,7 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>radiology</artifactId>
-	<version>1.4.6</version>
+	<version>1.4.7-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Radiology</name>
 	<description>Radiology module</description>
