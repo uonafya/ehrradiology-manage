@@ -32,6 +32,11 @@
 	
 	// get all tests
 	function getTests(currentPage){
+	
+	//ghanshyam 20-06-2012 Bug #237 in Radiology WorkList,Edit Patient Result If a result is entered on any page other 
+	//than Page 1, immediately the first page appears, and then the user has to manually go to the desired page number
+	this.currentPage = currentPage;
+
 		var date = jQuery("#date").val();
 		var phrase = jQuery("#phrase").val();
 		var investigation = jQuery("#investigation").val();
@@ -82,7 +87,11 @@
 						}),
 						success : function(data) {
 							if (data.indexOf('success')>=0) {
-								getTests();
+							
+	//ghanshyam 20-06-2012 Bug #237 in Radiology WorkList,Edit Patient Result If a result is entered on any page other 
+	//than Page 1, immediately the first page appears, and then the user has to manually go to the desired page number
+								getTests(currentPage);
+							
 							} else {
 								alert(data);
 							}
@@ -114,7 +123,11 @@
 			}),
 			success : function(data) {
 				if (data.indexOf('success')>=0) {
-					getTests();
+				
+	//ghanshyam 20-06-2012 Bug #237 in Radiology WorkList,Edit Patient Result If a result is entered on any page other 
+	//than Page 1, immediately the first page appears, and then the user has to manually go to the desired page number
+					getTests(currentPage);
+					
 				} else {
 					
 				}
