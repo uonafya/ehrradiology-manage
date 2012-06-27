@@ -24,10 +24,10 @@ import org.openmrs.Concept;
 
 public class TestResultModel implements Comparable<TestResultModel> {
 
-	public static String LEVEL_INVESTIGATION = "LEVEL_INVESTIGATION";
-	public static String LEVEL_SET = "LEVEL_SET";
-	public static String LEVEL_TEST = "LEVEL_TEST";
-	public static String LEVEL_RESULT = "LEVEL_RESULT";
+	public static final String LEVEL_INVESTIGATION = "LEVEL_INVESTIGATION";
+	public static final String LEVEL_SET = "LEVEL_SET";
+	public static final String LEVEL_TEST = "LEVEL_TEST";
+	public static final String LEVEL_RESULT = "LEVEL_RESULT";
 
 	public String investigation;
 	public String set;
@@ -156,7 +156,7 @@ public class TestResultModel implements Comparable<TestResultModel> {
 		this.notGivenFormId = notGivenFormId;
 	}
 
-	@Override
+
 	public int compareTo(TestResultModel o) {
 		if (o != null) {
 			String tInvestigation = this.getInvestigation();
