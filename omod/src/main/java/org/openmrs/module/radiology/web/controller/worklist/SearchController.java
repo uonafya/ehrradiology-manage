@@ -22,6 +22,7 @@ package org.openmrs.module.radiology.web.controller.worklist;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -80,6 +81,8 @@ public class SearchController {
 				currentPage = 1;
 			List<RadiologyTest> radiologyTests = rs.getAcceptedRadiologyTests(date, phrase, allowableTests, currentPage);			
 			List<TestModel> tests = RadiologyUtil.generateModelsFromTests(radiologyTests, testTreeMap);
+			//ghanshyam 04/07/2012 New Requirement #274
+			Collections.sort(tests);
 			int total = rs.countAcceptedRadiologyTests(date, phrase, allowableTests);
 			PagingUtil pagingUtil = new PagingUtil(GlobalPropertyUtil.getInteger(RadiologyConstants.PROPERTY_PAGESIZE, 20), currentPage,
 					total);

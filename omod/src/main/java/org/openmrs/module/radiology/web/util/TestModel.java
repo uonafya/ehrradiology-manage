@@ -20,7 +20,9 @@
 
 package org.openmrs.module.radiology.web.util;
 
-public class TestModel {
+import java.util.Comparator;
+//ghanshyam 04/07/2012 New Requirement #274
+public class TestModel implements Comparator<TestModel>, Comparable<TestModel>{
 
 	private String startDate;
 	private String patientIdentifier;
@@ -38,6 +40,9 @@ public class TestModel {
 	private Integer notGivenEncounterId;
 	private Boolean xray;
 	private String age;
+	//ghanshyam 04/07/2012 New Requirement #274
+	public TestModel(){
+	   }
 
 	public String getStartDate() {
 		return startDate;
@@ -166,4 +171,16 @@ public class TestModel {
 	public void setAge(String age) {
 		this.age = age;
 	}
-}
+	//ghanshyam 04/07/2012 New Requirement #274
+	
+	 // Overriding the compareTo method
+	   public int compareTo(TestModel t){
+	      return (this.patientName).compareTo(t.patientName);
+	   }
+	   
+	   // Overriding the compare method
+	public int compare(TestModel t, TestModel t1) {
+		return 0;
+	}
+
+	   }

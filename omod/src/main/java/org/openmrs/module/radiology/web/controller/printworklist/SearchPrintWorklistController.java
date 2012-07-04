@@ -22,6 +22,7 @@ package org.openmrs.module.radiology.web.controller.printworklist;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -66,6 +67,8 @@ public class SearchPrintWorklistController {
 			.getSession().getAttribute(
 					RadiologyConstants.SESSION_TEST_TREE_MAP);
 			List<TestModel> tests = RadiologyUtil.generateModelsFromTests(radiologyTests, testTreeMap);
+			//ghanshyam 04/07/2012 New Requirement #274
+			Collections.sort(tests);
 			model.addAttribute("tests", tests);
 			model.addAttribute("testNo", tests.size());			
 		} catch (ParseException e) {
