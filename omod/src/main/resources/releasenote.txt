@@ -1,3 +1,18 @@
+1.4.7
+- Fixed high priority bugs detected by Jenkins 
+- Resolved issues
+	Bug #111: Hamirpur Radiology USG Pelvis
+	Bug #223: 1.4.7-SNAPSHOT Punjab Forms and global properties
+	Bug #279: Mohali- Deafault X ray Form
+	Bug #280: Mohali- Default Form
+	Bug #281: Mohli-Enter Result
+	Bug #282: Mohali-Edit Result
+	Bug #283: Mohali-Print Report
+	Bug #284: Solan-Pateint Report
+	Bug #288: Mohali-X-Ray default Form , Patient report
+	Support #237: [1.4.7- SNAPSHOT] Edit Patient Result
+	Support #273: Solan: Radiloogy
+
 1.4.3
 - Fixed bug not showing report on Patient Report page for DDU
 - Fixed bug not refresh the page when enter result on Worklist.
