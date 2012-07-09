@@ -208,7 +208,8 @@
 	<input id="phrase"/>
 	Investigation:
 	<select name="investigation" id="investigation">
-		<option value="0">Select an investigation</option>
+	<%-- ghanshyam 09/07/2012 New Requirement #310 --%>
+		<option value="0">Consolidated List</option>
 		<c:forEach var="investigation" items="${investigations}">
 			<option value="${investigation.id}">${investigation.name.name}</option>
 		</c:forEach>	
