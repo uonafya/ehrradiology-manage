@@ -51,7 +51,8 @@
 				}
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
-				alert("ERROR " + xhr);
+				/* alert("ERROR " + xhr); */
+				alert("Please select an investigation!");
 			}
 		});
 	}
@@ -124,10 +125,12 @@
 	Investigation:
 	<select name="investigation" id="investigation">
 	<%-- ghanshyam 09/07/2012 New Requirement #310 --%>
-		<option value="0">Consolidated List</option>
+	<%-- kesavulu 20/07/2012 New Requirement #322 --%>
+		<option selected="selected">Select</option>		
 		<c:forEach var="investigation" items="${investigations}">
 			<option value="${investigation.id}">${investigation.name.name}</option>
-		</c:forEach>	
+		</c:forEach>
+		<option value="0">Consolidated List</option>	
 	</select>
 	<br/>
 	<input type="button" value="Get worklist" onClick="getTests();"/>
