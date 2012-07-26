@@ -215,7 +215,7 @@
 		<c:forEach var="investigation" items="${investigations}">
 			<option value="${investigation.id}">${investigation.name.name}</option>
 		</c:forEach>
-		<option value="0">Consolidated List</option>	
+		<option value="0">CONSOLIDATED LIST</option>	
 	</select>
 	<br/>
 	<input type="button" value="Get worklist" onClick="getTests();"/>
