@@ -158,6 +158,8 @@ public class HibernateRadiologyDAO implements RadiologyDAO {
 				dateTimeFormatter.parse(endDate)));
 		criteria.add(Restrictions.eq("discontinued", false));
 		criteria.add(Restrictions.in("concept", tests));
+		//ghanshyam-kesav 16-08-2012 Bug #323 [BILLING] When a bill with a lab\radiology order is edited the order is re-sent
+		criteria.add(Restrictions.isNull("dateVoided"));
 		if (!CollectionUtils.isEmpty(patients))
 			criteria.add(Restrictions.in("patient", patients));
 		criteria.addOrder(org.hibernate.criterion.Order.asc("startDate"));
