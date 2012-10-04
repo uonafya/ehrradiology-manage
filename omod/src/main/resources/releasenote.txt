@@ -1,3 +1,9 @@
+1.4.8
+New Requirement #274: [RADIOLOGY] - WorkList of Patients in Alphabetical Order
+New Requirement #310: [RADIOLOGY] Generate Consolidated Work List
+New Requirement #315: [RADIOLOGY] Advanced Search in Patient Report
+New Requirement #322: [RADIOLOGY] Make Consolidated Work List an Option in the investigation drop down list
+
 1.4.7
 - Fixed high priority bugs detected by Jenkins 
 - Resolved issues
