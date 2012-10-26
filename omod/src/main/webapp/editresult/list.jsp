@@ -125,7 +125,8 @@
 		if(validated){			
 			var formContent = jQuery("#contentForm" + testId).formSerialize();
 			jQuery.post(getContextPath() + "/module/radiology/showForm.form", formContent, function(data) {
-				completeTest(testId);
+			//ghanshyam 26-oct-2012 Bug #420 [Radiology]in XRAY-DEPARTMENT test result after edit disppears from list of that investigation Date
+			   getTests();	
 			});
 		} else {
 			alert("Please complete the form");
