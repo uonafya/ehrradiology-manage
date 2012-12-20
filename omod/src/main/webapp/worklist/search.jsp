@@ -46,7 +46,14 @@
 				</c:otherwise>
 			</c:choose>
 			<tr class="${klass}">
-				<td>${index.count}</td>
+				<c:choose>
+				<c:when test="${pagingUtil.currentPage != 1}" >
+				<td>${index.count + (pagingUtil.currentPage-1)*pagingUtil.pageSize} </td>
+				</c:when>
+				<c:otherwise>
+					<td>${index.count}</td>
+				</c:otherwise>
+			</c:choose>
 				<td>
 					<c:choose>
 						<c:when test='${test.xray}'>							
