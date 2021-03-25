@@ -8,7 +8,7 @@
 	<name>@MODULE_NAME@</name>
 	<version>@MODULE_VERSION@</version>
 	<package>@MODULE_PACKAGE@</package>
-	<author>Truong Ha</author>
+	<author>Truong Ha, Updated by HealthIT/UoN</author>
 	<description>
 			Radiology
 	</description>

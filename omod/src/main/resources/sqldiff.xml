@@ -64,14 +64,15 @@
 			Add column not_given_encounter_id into radiology_test;
 			Add column type into table radiology_form;
 			Add column concept_name into table radiology_form;
+			ALTER TABLE radiology_form ADD concept_name varchar(300) DEFAULT NULL;(removed)
+			ALTER TABLE radiology_test CHANGE encounter_id given_encounter_id int(11);(removed)
+			ALTER TABLE radiology_test ADD not_given_encounter_id int(11) DEFAULT NULL;(removed)
+			ALTER TABLE radiology_test CHANGE radiology_form_id given_form_id int(11);
+			ALTER TABLE radiology_test ADD not_given_form_id int(11) DEFAULT NULL;
+			ALTER TABLE radiology_form ADD type varchar(30) DEFAULT NULL;
 		</description>
 		<sql>
-			ALTER TABLE radiology_test CHANGE encounter_id given_encounter_id int(11);
-			ALTER TABLE radiology_test ADD not_given_encounter_id int(11) DEFAULT NULL;
-			ALTER TABLE radiology_test CHANGE radiology_form_id given_form_id int(11);			
-			ALTER TABLE radiology_test ADD not_given_form_id int(11) DEFAULT NULL;			
-			ALTER TABLE radiology_form ADD type varchar(30) DEFAULT NULL;
-			ALTER TABLE radiology_form ADD concept_name varchar(300) DEFAULT NULL;
+
 		</sql>
 	</diff>
 	<diff>
@@ -93,14 +94,14 @@
 			Drop columns type, not_given_encounter_id, not_given_form_id in table radiology_form;
 			Rename columns given_form_id, given_encounter_id to form_id, encounter_id;
 			Add table radiology_template, radiology_template_test
-		</description>
-		<sql>
 			ALTER TABLE radiology_form DROP COLUMN `type`;
-			ALTER TABLE radiology_test DROP COLUMN `not_given_encounter_id`; 
+			ALTER TABLE radiology_test DROP COLUMN `not_given_encounter_id`;
 			ALTER TABLE radiology_test DROP COLUMN `not_given_form_id`;
 			ALTER TABLE radiology_test CHANGE `given_form_id` `form_id` int(11) DEFAULT NULL;
-			ALTER TABLE radiology_test CHANGE `given_encounter_id` `encounter_id` int(11) DEFAULT NULL;  
-			
+			ALTER TABLE radiology_test CHANGE `given_encounter_id` `encounter_id` int(11) DEFAULT NULL;
+		</description>
+		<sql>
+
 			CREATE TABLE IF NOT EXISTS `radiology_template` (
 			  `template_id` int(11) NOT NULL AUTO_INCREMENT,
 			  `name` varchar(200) DEFAULT NULL,
