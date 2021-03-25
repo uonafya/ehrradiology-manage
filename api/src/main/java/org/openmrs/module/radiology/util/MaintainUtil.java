@@ -26,7 +26,7 @@ import java.util.Locale;
 import java.util.Set;
 
 import org.openmrs.Concept;
-import org.openmrs.ConceptWord;
+import org.openmrs.ConceptSearchResult;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.hospitalcore.RadiologyService;
 import org.openmrs.module.hospitalcore.form.RadiologyForm;
@@ -112,7 +112,7 @@ public class MaintainUtil {
 		if (concept != null) {
 			return concept;
 		} else {
-			List<ConceptWord> cws = Context.getConceptService().findConcepts(
+			List<ConceptSearchResult> cws = Context.getConceptService().getConcepts(
 					name, new Locale("en"), false);
 			if (!cws.isEmpty())
 				return cws.get(0).getConcept();

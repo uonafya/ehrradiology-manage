@@ -36,7 +36,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.openmrs.Concept;
-import org.openmrs.ConceptWord;
+import org.openmrs.ConceptSearchResult;
 import org.openmrs.Order;
 import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
@@ -126,11 +126,11 @@ public class AjaxController {
 	public String autocompleteConceptSearch(
 			@RequestParam(value = "q", required = false) String name,
 			Model model) {
-		List<ConceptWord> cws = Context.getConceptService().findConcepts(name,
+		List<ConceptSearchResult> cws = Context.getConceptService().getConcepts(name,
 				new Locale("en"), false);
 		Set<String> conceptNames = new HashSet<String>();
-		for (ConceptWord word : cws) {
-			String conceptName = word.getConcept().getName().getName();
+		for (ConceptSearchResult word : cws) {
+			String conceptName = word.getConceptName().getName();
 			conceptNames.add(conceptName);
 		}
 		List<String> concepts = new ArrayList<String>();
