@@ -27,6 +27,6 @@
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 	-->
 	<!-- The default place to look for controllers that have annotations -->
-	<context:component-scan base-package="org.openmrs.module.radiology.web" />
+	<context:component-scan base-package="org.openmrs.module.radiology" />
 
 </beans>
