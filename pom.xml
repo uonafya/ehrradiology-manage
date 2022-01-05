@@ -24,7 +24,9 @@
 	</modules>
 
 	<properties>
-		<openMRSVersion>1.12.0</openMRSVersion>
+		<openMRSVersion>2.3.3</openMRSVersion>
+		<legacyUiVersion>1.5.0</legacyUiVersion>
+		<ehrconfigsVersion>1.0.10-SNAPSHOT</ehrconfigsVersion>
 	</properties>
 
 	<dependencyManagement>
@@ -56,6 +58,24 @@
 				<version>${openMRSVersion}</version>
 				<type>pom</type>
 				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>legacyui-api</artifactId>
+				<version>${legacyUiVersion}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>legacyui-omod</artifactId>
+				<version>${legacyUiVersion}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>ehrconfigs-api</artifactId>
+				<version>${ehrconfigsVersion}</version>
+				<scope>provided</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
